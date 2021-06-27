@@ -2,10 +2,6 @@ name: test_and_linter
 
 on: push
 
-defaults:
-  run:
-    working-directory: blog
-
 jobs:
   test_and_linter:
     name: rspec
