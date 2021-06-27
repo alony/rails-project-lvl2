@@ -2,6 +2,10 @@ name: test_and_linter
 
 on: push
 
+defaults:
+  run:
+    working-directory: blog
+
 jobs:
   test_and_linter:
     name: rspec
@@ -13,15 +17,12 @@ jobs:
 
       - name: setup ruby
         uses: ruby/setup-ruby@v1
-        working-directory: blog
         with:
           ruby-version: 2.7
           bundler-cache: true
 
       - name: run linter
-        working-directory: blog
         run: bundle exec rubocop
 
       - name: run tests
-        working-directory: blog
         run: bundle exec rspec spec
